@@ -1,3 +1,4 @@
+import os
 import aiopg.sa
 from typing import List, Dict
 import datetime

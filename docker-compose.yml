@@ -9,12 +9,15 @@ services:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+
   web:
     build: .
-    command: python -m newsapp
+    command: python main.py
     volumes:
       - .:/newsapp
     ports:
-      - "8000:8000"
+      - "8080:8080"
     depends_on:
       - db
