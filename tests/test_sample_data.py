@@ -1,6 +1,5 @@
 from aiohttp.test_utils import AioHTTPTestCase
 from aiohttp import web
-
 from news_app.main import setup_init
 
 

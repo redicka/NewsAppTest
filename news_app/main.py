@@ -29,10 +29,6 @@ def setup_init(application: Optional[web.Application] = app) -> web.Application:
     return application
 
 
-def main():
+def instance():
     app = setup_init()
     web.run_app(app, host=conf['host'], port=conf['port'])
-
-
-if __name__ == '__main__':
-    main()

@@ -1,37 +1,44 @@
 NewsApp Test
 =====
 
-Example of polls project using aiohttp_, aiopg_ and aiohttp_jinja2_,
-similar to Django one.
-
-Install the app::
-
-    $ pip install -r requirements.txt
+Example of News read using aiohttp, aiopg and SQLAlchemy.
 
 
-Preparations
+How to deploy in docker compose.
 
-Create db and populate it with sample data::
+Build docker with web application:
 
+    $ docker build -f Dockerfile -t test:newsapp .
+
+At the first launch, you need to create a table and test data:
+
+    $ docker-compose up -d db
     $ python init_db.py
+    $ docker-compose dowb
+
 
 Run
 ---
 Run application:
 
-    $ cd NewsApp
-    $ python main.py
+    $ docker-compose up
 
 Open browser for read all news:
 
-    http://localhost:8080/ 
+    http://127.0.0.1:8080/
 
-Open browser for read news by id:
+For read news by id:
 
-    http://localhost:8080/news/1
+    http://127.0.0.1:8080/news/1
 
-Tests
+
+Stop
+---
+Stop application:
+
+    $ docker-compose down
+
+Tests in web container
 -----
 
-
-    $ python -m unittest discover -s tests
+    $ docker-compose exec web python -m unittest discover -s tests

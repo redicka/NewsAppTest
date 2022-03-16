@@ -14,7 +14,7 @@ services:
 
   web:
     build: .
-    command: python main.py
+    command: python app_server.py
     volumes:
       - .:/newsapp
     ports:
